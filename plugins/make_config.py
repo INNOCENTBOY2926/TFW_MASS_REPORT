@@ -12,7 +12,7 @@ from info import Config, Txt
 config_path = Path("config.json")
 
 
-@Client.on_message(filters.private & filters.chat(Config.SUDO) & filters.command('make_config'))
+@Client.on_message(filters.private & filters.chat(Config.SUDO) & filters.chat(Config.OWNER) & filters.command('make_config'))
 async def make_config(bot: Client, msg: Message):
     try:
         if config_path.exists():
